@@ -33,6 +33,12 @@ todo_update_model = api.model('TodoUpdate', {
 })
 
 
+@app.route('/')
+def index():
+    """Root endpoint - redirects to Swagger docs"""
+    return {'message': 'Todo List API', 'docs': '/docs', 'api': '/todos'}, 200
+
+
 @api.route('/todos')
 class TodoList(Resource):
     @api.doc('list_todos')
